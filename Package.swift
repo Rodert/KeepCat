@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "KeepCat",
-    defaultLocalization: "en",
+    defaultLocalization: "zh-Hans",
     platforms: [
         .macOS(.v14)
     ],

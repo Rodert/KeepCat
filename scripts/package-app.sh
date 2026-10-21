@@ -29,7 +29,7 @@ if [[ -n "$RESOURCE_BUNDLE" ]]; then
 fi
 
 plutil -create xml1 "$APP_DIR/Contents/Info.plist"
-plutil -insert CFBundleDevelopmentRegion -string en "$APP_DIR/Contents/Info.plist"
+plutil -insert CFBundleDevelopmentRegion -string zh-Hans "$APP_DIR/Contents/Info.plist"
 plutil -insert CFBundleDisplayName -string KeepCat "$APP_DIR/Contents/Info.plist"
 plutil -insert CFBundleExecutable -string KeepCat "$APP_DIR/Contents/Info.plist"
 plutil -insert CFBundleIdentifier -string com.keepcat.app "$APP_DIR/Contents/Info.plist"
@@ -40,6 +40,7 @@ plutil -insert CFBundleShortVersionString -string 0.1.0 "$APP_DIR/Contents/Info.
 plutil -insert CFBundleVersion -string 1 "$APP_DIR/Contents/Info.plist"
 plutil -insert LSMinimumSystemVersion -string 14.0 "$APP_DIR/Contents/Info.plist"
 plutil -insert LSUIElement -bool true "$APP_DIR/Contents/Info.plist"
+plutil -insert LSMultipleInstancesProhibited -bool true "$APP_DIR/Contents/Info.plist"
 plutil -insert NSHighResolutionCapable -bool true "$APP_DIR/Contents/Info.plist"
 
 codesign --force --deep --sign - "$APP_DIR"

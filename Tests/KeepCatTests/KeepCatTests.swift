@@ -17,8 +17,22 @@ final class KeepCatTests: XCTestCase {
         XCTAssertNil(SessionDuration.indefinitely.timeInterval)
     }
 
+    func testOnboardingShowsByDefault() {
+        let defaults = isolatedDefaults()
+
+        XCTAssertTrue(OnboardingPreference.shouldPresent(defaults: defaults))
+    }
+
+    func testOnboardingCanBeDismissedPermanently() {
+        let defaults = isolatedDefaults()
+        OnboardingPreference.hideOnFutureLaunches(defaults: defaults)
+
+        XCTAssertFalse(OnboardingPreference.shouldPresent(defaults: defaults))
+    }
+
     private func isolatedDefaults() -> UserDefaults {
         let suiteName = "KeepCatTests.\(UUID().uuidString)"
         return UserDefaults(suiteName: suiteName)!
     }
+
 }
